@@ -5,9 +5,9 @@ html {
 }
 
 :root {
-  --color1: rgb(29, 97, 124);
-  --color2: rgb(18, 62, 80);
-  --color3: rgb(255, 250, 0);
+  --color1: teal;
+  --color2: rgb(109, 91, 80);
+  --color3: rgb(149, 209, 184);
 }
 
 body {
@@ -21,7 +21,7 @@ body {
   grid-template-areas: "title button";
   grid-template-columns: 1fr 100px;
   margin: 0 auto;
-  background: linear-gradient(70deg, var(--color3) calc(50% - 130px), var(--color2) calc(50% - 130px));
+  background: linear-gradient(120deg, var(--color3) calc(50% - 130px), rgba(0,0,0,0) calc(50% - 130px)), linear-gradient(70deg, var(--color1) calc(50% - 140px), var(--color2) calc(50% - 170px));
 }
 
 .headWrapper h1.header {
@@ -45,7 +45,7 @@ body {
 }
 .headWrapper button.Customize:active {
   transform: translateY(3px);
-  transition: 100ms;
+  transition: 30ms;
   box-shadow: 0 2px;
 }
     .dropdown {
@@ -53,15 +53,15 @@ body {
       position: fixed;
       right: 0;
       z-index: 2;
-      background: var(--color2);
+      color: var(--color3);
     }
     .dropdown form {
       display: grid;
       grid-template-areas: "name color";
       text-align: right;
+      background-color: var(--color2);
     }
         .dropdown form div {
-          color: var(--color3);
           padding: 10px;
           border-top: 2px solid var(--color1);
         }
@@ -73,6 +73,16 @@ body {
           background-color: var(--color1);
           grid-area: "color";
         }
+    .dropdown button.default {
+      position: absolute;
+      right: 0;
+      background-color: transparent;
+      color: var(--color3);
+      text-align: center;
+      width: 50px;
+      border: none;
+      padding: 0;
+    }
 
 
 
@@ -92,9 +102,7 @@ body {
   bottom: 0px; left: 0px;
   height: 0;
   width: 0;
-  border-bottom: 330px solid var(--color2);
-  border-right: 660px solid transparent;
-  z-index: 2;
+  z-index: 6;
 }
 
 .gameWrapper .rearMountain {
@@ -102,22 +110,25 @@ body {
   bottom: 0px; right: 0px;
   height: 0;
   width: 0;
-  border-bottom: 300px solid var(--color3);
-  border-left: 600px solid transparent;
   z-index: 1;
 }
 
-.gameWrapper button.begin {
+.gameWrapper button {
     position: absolute;
     bottom: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--color1);
+    right: 50%;
+    transform: translateX(50%);
+    background-color: transparent;
     border: 0px;
     color: var(--color2);
     border-radius: 5px;
     z-index: 7;
 }
+    .gameWrapper button.reset {
+      display:none;
+      bottom: 10px;
+      right: 30px;
+    }
 
 .gameWrapper .gameWindow {
   overflow: hidden;

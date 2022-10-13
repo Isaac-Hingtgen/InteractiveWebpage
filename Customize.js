@@ -1,6 +1,6 @@
 
 
-export default function openCustomizationWindow() {
+export function openCustomizationWindow() {
     const dropWindow = document.querySelector(".dropdown");
     if (dropWindow.style.display === "block") {
         dropWindow.style.display = "none";
@@ -16,7 +16,7 @@ export function changeColor(color) {
     document.querySelector(":root").style.setProperty(`--${color}`, localStorage.getItem(`storedColor[${num}]`));
 }
 
-export function loadColors() {
+export default function loadColors() {
     if (!localStorage.getItem('storedColor')) {
         return;
     }
@@ -32,4 +32,10 @@ export function loadColors() {
         rootStyle.setProperty(`--color${i}`, color[i-1]);                  // setting each :root color variable to the color in local storage
         document.querySelector(`[name=color${i}]`).value = color[i-1];
     }
+}
+
+export function resetColorsToDefault() {
+    localStorage.removeItem('storedColor[1]');
+    localStorage.removeItem('storedColor[2]');
+    localStorage.removeItem('storedColor[3]');
 }
