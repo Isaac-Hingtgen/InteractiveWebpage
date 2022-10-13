@@ -1,0 +1,127 @@
+html {
+  background-color: black;
+  margin: 0;
+  height: 100%;
+}
+
+:root {
+  --color1: rgb(29, 97, 124);
+  --color2: rgb(18, 62, 80);
+  --color3: rgb(255, 250, 0);
+}
+
+body {
+  height: 100%;
+}
+
+
+
+.headWrapper {
+  display: grid;
+  grid-template-areas: "title button";
+  grid-template-columns: 1fr 100px;
+  margin: 0 auto;
+  background: linear-gradient(70deg, var(--color3) calc(50% - 130px), var(--color2) calc(50% - 130px));
+}
+
+.headWrapper h1.header {
+  grid-area: "title";
+  margin: auto;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  grid-column: 1;
+  color: var(--color1);
+  text-shadow: -2px 2px black;
+}
+
+.headWrapper button.Customize {
+    grid-area: "button";
+    place-items: center end;
+    background-color: var(--color1);
+    box-shadow: 0 5px var(--color3);
+    border: 1px solid var(--color1);
+    color: var(--color3);
+    margin: 8px auto 12px;
+    border-radius: 5px;
+}
+.headWrapper button.Customize:active {
+  transform: translateY(3px);
+  transition: 100ms;
+  box-shadow: 0 2px;
+}
+    .dropdown {
+      display: none;
+      position: fixed;
+      right: 0;
+      z-index: 2;
+      background: var(--color2);
+    }
+    .dropdown form {
+      display: grid;
+      grid-template-areas: "name color";
+      text-align: right;
+    }
+        .dropdown form div {
+          color: var(--color3);
+          padding: 10px;
+          border-top: 2px solid var(--color1);
+        }
+        .dropdown form input {
+          padding: 8px;
+          height: 100%;
+          border: 0;
+          border-bottom: 2px solid var(--color2);
+          background-color: var(--color1);
+          grid-area: "color";
+        }
+
+
+
+.gameWrapper {
+    background: var(--color1);
+    overflow: hidden;
+    position: absolute;
+    top: 39px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    text-align: center;
+}
+
+.gameWrapper .frontMountain {
+  position: absolute;
+  bottom: 0px; left: 0px;
+  height: 0;
+  width: 0;
+  border-bottom: 330px solid var(--color2);
+  border-right: 660px solid transparent;
+  z-index: 2;
+}
+
+.gameWrapper .rearMountain {
+  position: absolute;
+  bottom: 0px; right: 0px;
+  height: 0;
+  width: 0;
+  border-bottom: 300px solid var(--color3);
+  border-left: 600px solid transparent;
+  z-index: 1;
+}
+
+.gameWrapper button.begin {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color1);
+    border: 0px;
+    color: var(--color2);
+    border-radius: 5px;
+    z-index: 7;
+}
+
+.gameWrapper .gameWindow {
+  overflow: hidden;
+  position:absolute;
+  top: 0; bottom: 0; right: 0; left: 0;
+  padding: 5px;
+}
